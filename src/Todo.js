@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import TodoForm from "./TodoForm";
 import List from "./List";
 import "./Todo.css";
 
@@ -16,30 +17,6 @@ function Todo() {
       <TodoForm onAddItem={onAddItem}></TodoForm>
       <List items={items}></List>
     </div>
-  );
-}
-
-function TodoForm(props) {
-  const [text, setText] = useState("");
-
-  function handleChange(event) {
-    let t = event.target.value;
-    setText(t);
-  }
-
-  function addItem(event) {
-    event.preventDefault();
-    if (text) {
-      // setItems([...items, text]);
-      props.onAddItem(text);
-      setText("");
-    }
-  }
-  return (
-    <form action="">
-      <input onChange={handleChange} type="text" value={text}></input>
-      <button onClick={addItem}>Add</button>
-    </form>
   );
 }
 
