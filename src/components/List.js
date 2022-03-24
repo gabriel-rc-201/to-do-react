@@ -8,6 +8,7 @@ function DoneImg(props) {
     return <img src="./assets/check.png" alt="undone" width={25} />;
   }
 }
+
 function List(props) {
   return (
     <ul>
