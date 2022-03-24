@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "./Card";
 
 function DoneImg(props) {
   if (props.done) {
@@ -11,24 +12,28 @@ function List(props) {
   return (
     <ul>
       {props.items.map((item) => (
-        <li className={item.done ? "done" : ""} key={item.id}>
-          {" "}
-          {item.text}{" "}
-          <button
-            onClick={() => {
-              props.onDone(item);
-            }}
-          >
+        <li>
+          <Card className={item.done ? "done item" : "item"} key={item.id}>
             {" "}
-            <DoneImg done={item.done}></DoneImg>{" "}
-          </button>
-          <button
-            onClick={() => {
-              props.onItemDeleted(item);
-            }}
-          >
-            <img src="./assets/delete.png" alt="delete" width={25} />
-          </button>{" "}
+            {item.text}{" "}
+            <div>
+              <button
+                onClick={() => {
+                  props.onDone(item);
+                }}
+              >
+                {" "}
+                <DoneImg done={item.done}></DoneImg>{" "}
+              </button>
+              <button
+                onClick={() => {
+                  props.onItemDeleted(item);
+                }}
+              >
+                <img src="./assets/delete.png" alt="delete" width={25} />
+              </button>{" "}
+            </div>
+          </Card>
         </li>
       ))}
     </ul>
